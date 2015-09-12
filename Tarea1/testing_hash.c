@@ -51,8 +51,8 @@ int main(int argc, char const *argv[]) {
   pedido p;
   init_pedido(&p,key,name,quantity);
   printPedido(&p);
-  //hash_new(&hash,sizeof(pedido),freeOrder,delQueue,hash_f);
-  //hash_destroy(&hash);
+  hash_new(&hash,sizeof(pedido),freeOrder,delQueue,hash_f);
+  hash_destroy(&hash);
   freeOrder(&p);
 
 
