@@ -24,6 +24,7 @@ void freeOrder(void *p)
 {
   pedido * current;
   current = p;
+  free(current->name)
   free(current->key);
 }
 void printPedido(pedido *p)
