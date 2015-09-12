@@ -35,22 +35,31 @@ void hash_add(close_hash *hash,char *key, void *element)
     , luego de crear/buscar la lista debo aplicar append a la lista que se encuentra
      en esa direccion*/
   unsigned long index = hash->function(key,hash_size(hash));
-  void *target = vector_address(hash->array,index);
+  printf("%d\n",index );
+
+  void *target =  vector_address(hash->array,index);
   if (!target)
   {
+    printf("entre\n" );
     hash_list hlist;
+    /*
     hlist_new(&hlist,sizeof(queue),hash->SecondList);
     hlist_append(&hlist,key,element,hash->freeElement);
     vector_insert_at(hash->array,index,&hlist);
     return;
+    */
   }
   else
-  {/*saca el la lista que se encuentra en la posicion index y luego le agrega el elemento*/
-  hash_list nodeList;
+  {
+  /*saca el la lista que se encuentra en la posicion index y luego le agrega el elemento*/
+  printf("entre en el else\n" );
+  /*
+  hash_list hlist;
   vector_item_at(hash->array,index,&nodeList);
   hlist_append(&nodeList,key,element,hash->freeElement);
+  */
   return;
-}
+  }
 }
 
 hashNode hash_find (close_hash *hash, void *element, char *key)

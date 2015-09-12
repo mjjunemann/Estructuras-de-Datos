@@ -14,6 +14,11 @@ static void vector_grow(vector *vector)
 static void *vector_address(vector *vector, int index)
 {
 	int addr = vector->elementSize * index;
+	if (!vector->elements + addr )
+	{
+		printf("soy nulo brother\n" );
+		return NULL;
+	}
 	return (char *)vector->elements + addr;
 }
 
@@ -30,9 +35,8 @@ void vector_new(vector *vector, int elementSize, freeFunction freeFn)
 	vector->elementSize = elementSize;
 	vector->logicalLength = 0;
 	vector->allocatedLength = 2;
-	vector->elements = NULL;
+	vector->elements = 	calloc(vector->allocatedLength,vector->elementSize);
 	vector->freeFn = freeFn;
-	vector_grow(vector);
 }
 
 void vector_destroy(vector *vector)
@@ -65,7 +69,7 @@ void vector_add(vector *vector, void *element)
 
 void vector_item_at(vector *vector, int index, void *target)
 {
-	assert(index >= 0 && index < vector->logicalLength);
+	assert(index >= 0 && index < vector->allocatedLength);
 
 	void *source = vector_address(vector, index);
 	memcpy(target, source, vector->elementSize);
@@ -73,7 +77,7 @@ void vector_item_at(vector *vector, int index, void *target)
 
 void vector_insert_at(vector *vector, int index, void *target)
 {
-	assert(index >= 0 && index <= vector->logicalLength);
+	assert(index >= 0 && index <= vector->allocatedLength);
 	vector_add(vector, target);
 
 	if(index < vector->logicalLength) {

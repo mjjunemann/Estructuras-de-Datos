@@ -52,9 +52,9 @@ int main(int argc, char const *argv[]) {
   init_pedido(&p,key,name,quantity);
   printPedido(&p);
   hash_new(&hash,sizeof(pedido),freeOrder,delQueue,hash_f);
+  hash_add(&hash,key,&p);
   hash_destroy(&hash);
   freeOrder(&p);
-  printf("hello\n" );
 
 
   return 0;
