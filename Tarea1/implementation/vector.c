@@ -42,7 +42,8 @@ void vector_destroy(vector *vector)
 			void *target = vector_address(vector,i);
 			if(*(int *)target)
 			{
-			vector->freeFn(target);
+				printf("entre a qui madafa?\n" );
+				vector->freeFn(target);
 			}
 		}
 	}
