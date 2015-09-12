@@ -35,7 +35,6 @@ void hash_add(close_hash *hash,char *key, void *element)
     , luego de crear/buscar la lista debo aplicar append a la lista que se encuentra
      en esa direccion*/
   unsigned long index = hash->function(key,hash_size(hash));
-  printf("%d\n",index );
 
   void *target =  vector_address(hash->array,index);
   if (!*(int *)target)
