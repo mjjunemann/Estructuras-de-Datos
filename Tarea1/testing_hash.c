@@ -54,6 +54,7 @@ int main(int argc, char const *argv[]) {
   hash_new(&hash,sizeof(pedido),freeOrder,delQueue,hash_f);
   hash_add(&hash,key,&p);
   hash_destroy(&hash);
+  freeOrder(&p);
 
 
   return 0;

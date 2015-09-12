@@ -39,7 +39,11 @@ void vector_destroy(vector *vector)
 	if(vector->freeFn) {
 		int i;
 		for(i = 0; i < vector_size(vector); i++) {
-			vector->freeFn(vector_address(vector, i));
+			void *target = vector(addres(vector,i))
+			if(!*(int *)target)
+			{
+			vector->freeFn(target);
+			}
 		}
 	}
 
