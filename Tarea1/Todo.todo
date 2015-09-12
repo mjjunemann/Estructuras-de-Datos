@@ -1,0 +1,19 @@
+TODO:
+  *Crear queues dentro de listas;
+  *Crear objetos dentro de las queues;
+
+
+NOTE:
+TIP to Remember:
+  ° IF I GOT list:
+    list target;
+    vector_item_at(&v,index,&target)
+Obtengo algun item de la lista primer nodo
+  ° Queue*  q = target.data -> data  (data es un puntero a una queue en teoria) => *q es el valor y q el lugar donde esta en la memoria.
+  ° queue_append(q,value)
+
+
+
+#############
+DEBER ENTREGAR ALA FUNCION HASH ADD EL TAMAÑO DEL OBJETO QUE VOY A AGREGAR HASTA
+QUE LLEGUE A LA QUEUE
