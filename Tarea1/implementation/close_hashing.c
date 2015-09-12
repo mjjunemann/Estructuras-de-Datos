@@ -55,8 +55,8 @@ void hash_add(close_hash *hash,char *key, void *element)
   printf("entre en el else\n" );
 
   hash_list hlist;
-  vector_item_at(hash->array,index,&nodeList);
-  hlist_append(&nodeList,key,element,hash->freeElement);
+  vector_item_at(hash->array,index,&hlist);
+  hlist_append(&hlist,key,element,hash->freeElement);
   return;
   }
 }
