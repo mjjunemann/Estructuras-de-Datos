@@ -38,15 +38,15 @@ void hash_add(close_hash *hash,char *key, void *element)
   printf("%d\n",index );
 
   void *target =  vector_address(hash->array,index);
-  if (!target)
+  if (!*(int *)target)
   {
     printf("entre\n" );
     hash_list hlist;
-    /*
-    hlist_new(&hlist,sizeof(queue),hash->SecondList);
-    hlist_append(&hlist,key,element,hash->freeElement);
+    hlist_new(&hlist,sizeof(queue),hash->SecondList); // le dice como destruir la queue
+    hlist_append(&hlist,key,element,hash->freeElement); // le dice como destruir el elemento
     vector_insert_at(hash->array,index,&hlist);
     return;
+    /*
     */
   }
   else

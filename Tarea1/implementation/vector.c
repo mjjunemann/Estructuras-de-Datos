@@ -14,11 +14,6 @@ static void vector_grow(vector *vector)
 static void *vector_address(vector *vector, int index)
 {
 	int addr = vector->elementSize * index;
-	if (!vector->elements + addr )
-	{
-		printf("soy nulo brother\n" );
-		return NULL;
-	}
 	return (char *)vector->elements + addr;
 }
 
@@ -78,21 +73,10 @@ void vector_item_at(vector *vector, int index, void *target)
 void vector_insert_at(vector *vector, int index, void *target)
 {
 	assert(index >= 0 && index <= vector->allocatedLength);
-	vector_add(vector, target);
-
-	if(index < vector->logicalLength) {
-		int i;
-		void *source;
-		void *destination;
-
-		for(i = vector->logicalLength - 2; i > index; i--) {
-			source = vector_address(vector, i);
-			destination = vector_address(vector, i + 1);
-			memcpy(destination, source, vector->elementSize);
-		}
-
-		destination = vector_address(vector, i);
-		memcpy(destination, target, vector->elementSize);
+	void *source = vector_address(vector,index);
+	if (!*(int *)source)
+	{
+		memcpy(source,target,vector->elementSize);
 	}
 }
 
