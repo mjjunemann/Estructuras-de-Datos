@@ -26,7 +26,7 @@ void hlist_destroy(hash_list *list)
       list->freeFn(current->data);
     }
     free(current->data);
-    free(current->key)
+    free(current->key);
     free(current);
   }
 }
