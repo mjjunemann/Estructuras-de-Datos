@@ -26,7 +26,7 @@ void hash_new(close_hash *hash,int elementSize,freeFunction freeElement,freeFunc
 void hash_destroy(close_hash *hash)
 {
   vector_destroy(hash->array);
-  free(hash->vector);
+  free(hash->array);
 }
 
 void hash_add(close_hash *hash,char *key, void *element)
