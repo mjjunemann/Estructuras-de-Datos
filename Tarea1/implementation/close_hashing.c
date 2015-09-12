@@ -53,11 +53,10 @@ void hash_add(close_hash *hash,char *key, void *element)
   {
   /*saca el la lista que se encuentra en la posicion index y luego le agrega el elemento*/
   printf("entre en el else\n" );
-  /*
+
   hash_list hlist;
   vector_item_at(hash->array,index,&nodeList);
   hlist_append(&nodeList,key,element,hash->freeElement);
-  */
   return;
   }
 }
