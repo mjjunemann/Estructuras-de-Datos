@@ -49,7 +49,7 @@ void vector_destroy(vector *vector)
 
 int vector_size(vector *vector)
 {
-	return vector->logicalLength;
+	return vector->allocatedLength;
 }
 
 void vector_add(vector *vector, void *element)
