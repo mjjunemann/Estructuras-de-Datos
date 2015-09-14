@@ -39,7 +39,7 @@ void hlist_append(hash_list *list, char *key,void *element,freeFunction freeElem
     /*si no existe el nodo crealo, y luego agregale el elemento en este caso una queue */
     node = malloc(sizeof(hashNode));
     node ->key = strdup(key);
-    node ->data = malloc(list->elementSize);
+    node ->data = malloc(sizeof(queue));
     queue q;
     queue_new(&q,list->elementSize,freeElement);
     queue_enqueue(&q,element);
@@ -64,7 +64,8 @@ void hlist_append(hash_list *list, char *key,void *element,freeFunction freeElem
       printf("%s\n",node->key );
       queue *q2 = node->data;
       printf("%d\n",*(int *)q2->list->head->data );
-    } */
+    }
+     */
   }
   else
   {
@@ -84,8 +85,6 @@ hashNode *hlist_find(hash_list *list, char *key)// retornar la lista
   {
     if (!strcmp(current->key,key))
     {
-      printf("entre aqui\n" );
-      printf("estoy enviando %s\n",current->key );
       return current;
     }
     current = current->next;

@@ -7,7 +7,8 @@
 static void vector_grow(vector *vector)
 {
 	vector->allocatedLength *= 2;
-	vector->elements = realloc(vector->elements, vector->elementSize * vector->allocatedLength);
+	void *oldElements = vector->elements;
+	vector->elements = calloc(vector->allocatedLength,vector->elementSize);
 	assert(vector->elements);
 }
 
@@ -42,12 +43,10 @@ void vector_destroy(vector *vector)
 			void *target = vector_address(vector,i);
 			if(*(int *)target)
 			{
-				printf("entre a qui madafa?\n" );
 				vector->freeFn(target);
 			}
 		}
 	}
-
 	// free main elements
 	free(vector->elements);
 }

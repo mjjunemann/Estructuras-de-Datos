@@ -51,9 +51,7 @@ void list_append(list *list, void *element)
 	listNode *node = malloc(sizeof(listNode));
 	node->data = malloc(list->elementSize);
 	node->next = NULL;
-
 	memcpy(node->data, element, list->elementSize);
-
 	if(list->logicalLength == 0) {
 		list->head = list->tail = node;
 	} else {

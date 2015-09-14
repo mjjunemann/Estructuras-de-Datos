@@ -17,3 +17,8 @@ Obtengo algun item de la lista primer nodo
 #############
 DEBER ENTREGAR ALA FUNCION HASH ADD EL TAMAÑO DEL OBJETO QUE VOY A AGREGAR HASTA
 QUE LLEGUE A LA QUEUE
+
+
+###
+Funciona agregar items a la tabla
+ahora me falta remover y cambiar la quantity de un pedido;

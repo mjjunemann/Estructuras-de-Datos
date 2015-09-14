@@ -20,6 +20,7 @@ int main(int argc, char const *argv[]) {
   long a = hash_f(key);
   printf("%lu\n",a );
   /*
+  */
   hash_list list;
   hlist_new(&list,sizeof(int),delQueue);
   hlist_append(&list,key,&element,NULL);
@@ -28,6 +29,5 @@ int main(int argc, char const *argv[]) {
   printf("sabpbe\n" );
   printf("%d\n",*(int *)q1->list->head->data);
   hlist_destroy(&list);
-  */
   return 0;
 }
