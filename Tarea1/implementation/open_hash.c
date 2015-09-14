@@ -103,6 +103,10 @@ void * ohash_find(open_hash *hash, char *key) /*this should strcmp(str1,str2)*/
       {
         return target;
       }
+      else
+      {
+        j++;
+      }
     }
     else
     {
@@ -110,6 +114,8 @@ void * ohash_find(open_hash *hash, char *key) /*this should strcmp(str1,str2)*/
     }
     count++;
   }while(count < array->allocatedLength);
+
+  return NULL;
 }
 int ohash_size(open_hash *hash)
 {

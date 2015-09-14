@@ -39,7 +39,6 @@ void hash_add(close_hash *hash,char *key, void *element)
   void *target =  vector_address(hash->array,index);
   if (!*(int *)target)
   {
-    printf("%d\n",index );
     hash_list hlist;
     hlist_new(&hlist,hash->elementSize,hash->SecondList); // le dice como destruir la queue
     hlist_append(&hlist,key,element,hash->freeElement); // le dice como destruir el elemento
